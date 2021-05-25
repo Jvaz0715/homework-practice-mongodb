@@ -6,7 +6,6 @@ const logger = require('morgan');
 const mongoose = require("mongoose");
 
 mongoose
-  // handles standard 'errors'
   .connect("mongodb://localhost:27017/express-mongodb-intro", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
