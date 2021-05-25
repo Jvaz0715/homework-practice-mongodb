@@ -12,7 +12,7 @@ module.exports = {
             };
         });
     },
-    createRecipe: function(callback) {
+    createRecipe: function(body, callback) {
         let saveRecipe = new Recipe({
             recipeName: body.recipeName,
         });

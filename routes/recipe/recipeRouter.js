@@ -36,12 +36,12 @@ router.post("/create-recipe", function (req, res){
     if (err) {
       res.status(500).json({
         message: "Error",
-        error: err,
+        error: err
       });
     } else {
       res.json({
         message: 'success',
-        data: payload,
+        data: payload
       });
     };
   });
