@@ -3,8 +3,24 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const mongoose = require("mongoose");
+
+mongoose
+  // handles standard 'errors'
+  .connect("mongodb://localhost:27017/express-mongodb-intro", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    //then let client know mongoDB is connected
+    console.log(`MONGODB CONNECTED`);
+  })
+  .catch(function (e) {
+    // if not connected. log error
+    console.log(e);
+  });
+
+const indexRouter = require('./routes/indexRouter');
 const recipeRouter = require('./routes/recipe/recipeRouter')
 
 const app = express();
@@ -15,7 +31,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/recipes', recipeRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
