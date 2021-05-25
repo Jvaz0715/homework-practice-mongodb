@@ -13,12 +13,12 @@ module.exports = {
         });
     },
     createRecipe: function(callback) {
-        let createdRecipe = new Recipe({
+        let saveRecipe = new Recipe({
             recipeName: body.recipeName,
         });
 
-        //save the createdUser using.save
-        createdRecipe.save(function (err, payload) {
+        //save the saveUser using.save
+        saveRecipe.save(function (err, payload) {
             if (err) {
                 callback(err, null);
             } else {
