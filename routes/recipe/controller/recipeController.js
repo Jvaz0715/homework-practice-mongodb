@@ -20,12 +20,12 @@ module.exports = {
         });
 
         //save the createdUser using.save
-        createdRecipe.save((err, payload) => {
+        createdRecipe.save(function (err, payload) {
             if (err) {
                 callback(err, null);
             } else {
                 callback(null, payload);
             }
-        })
+        });
     },
 };
