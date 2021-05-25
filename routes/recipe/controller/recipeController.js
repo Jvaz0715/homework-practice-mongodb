@@ -13,4 +13,19 @@ module.exports = {
             };
         });
     },
-}
+    //14. in recipeController create a function called createRecipe the function should create a recipe and make sure it is saved to the monogd
+    createRecipe: function(callback) {
+        let createdRecipe = new Recipe({
+            recipeName: body.recipeName,
+        });
+
+        //save the createdUser using.save
+        createdRecipe.save((err, payload) => {
+            if (err) {
+                callback(err, null);
+            } else {
+                callback(null, payload);
+            }
+        })
+    },
+};

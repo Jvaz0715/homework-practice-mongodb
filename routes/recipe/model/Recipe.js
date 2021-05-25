@@ -1,5 +1,3 @@
-// this will be the file where we make a `template` for recipes
-
 const mongoose = require("mongoose");
 
 const recipeSchema = new mongoose.Schema({
